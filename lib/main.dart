@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sms/sms.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,11 +18,23 @@ class MyApp extends StatelessWidget {
           title: Text('Material App Bar'),
         ),
         body: Center(
-          child: Container(
-            child: Text('Hello World'),
+          child: FlatButton(
+            onPressed: () {
+              getAllMessages();
+            },
+            child: Text('Get Messages'),
           ),
         ),
       ),
     );
+  }
+}
+
+void getAllMessages() async {
+  SmsQuery query = new SmsQuery();
+  List messagesList = await query.getAllSms;
+  for (var message in messagesList) {
+    print(message.body);
+    print(message.address);
   }
 }
