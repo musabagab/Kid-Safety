@@ -33,8 +33,11 @@ class _MyAppState extends State<MyApp> {
 void getAllMessages() async {
   SmsQuery query = new SmsQuery();
   List messagesList = await query.getAllSms;
+  // this is a comment for the app
   for (var message in messagesList) {
+    // message body
     print(message.body);
+    // message address
     print(message.address);
   }
 }
