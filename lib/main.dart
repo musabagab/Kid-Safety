@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Material App Bar'),
+          title: Text('Kids safety app'),
         ),
         body: Center(
           child: FlatButton(
